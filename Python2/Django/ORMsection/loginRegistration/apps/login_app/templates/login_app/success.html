@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login/Registration</title>
+</head>
+<body>
+
+    <h1>Success! Welcome, {{session.name}}!</h1>
+    {% if session.success is not in session %}
+    <p>Try Again</p>
+    ^ can add validation to check if email is already in use, or password is  acceptable
+    {% elif session.success = login %}
+    <p>Successfully Logged In!</p>
+    {% else %}
+    <p>Successfully Registered!</p>
+    
+</body>
+</html>

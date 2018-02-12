@@ -1,0 +1,31 @@
+Error 1: #2003
+@ line 12 ~~ ’Port’: ‘4’
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' (61)")
+
+FIX: #2003. In order to properly connect the mysqlconnection.py, your port # must match the port # chosen in your MySQL workbench.
+~> ‘Port’: ‘3306’
+
+____________________________
+
+Error 2: #1045
+@ line 10 ~~ ‘user’: ‘user’
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'user'@'localhost' (using password: YES)")
+
+FIX: #1045. the Users’s access is denied because there is no proper route
+~> ‘user’: ‘root’
+
+____________________________
+
+Error 3: #1049
+@ line 9 ~~ ‘database’: ‘db’
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1049, "Unknown database 'db'")
+
+FIX: #1049.  The database name needs to match the name you assigned database in its functions argument.  The issue here is that ‘db’ is written as a string instead of the variable db, as previously assigned.  
+~> ‘database’: db
+
+EXAMPLE
+:::line6::: def __init__(self, app, sf)
+#will work as long as your database says sf in the config#
+:::line9::: ‘database’: sf
+
+____________________________

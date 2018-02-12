@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Courses</title>
+</head>
+<body>
+    
+    <div class="add">
+        <h2>Add a new course</h2>
+        <fieldset>
+            <form action="/courses/add"  method="post">
+            {% csrf_token %}
+                Name:<input type="text" name="name" placeholder="Course Name" /> </br>
+                Description:</br>
+                <textarea rows="3" cols="40" name="desc"></textarea> 
+                <input type="submit" value="add">
+            </form>
+        </fieldset>
+    </div>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            </ul>
+            {% endfor %}
+    {% endif %}
+
+    <div class="show">
+        <table>
+            <tr>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Date Added</th>
+                <th>Actions</th>
+            </tr>
+            
+            {% if allCourses %}
+                {% for course in allCourses %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.desc }}</td>
+                    <td>{{ course.created_at }}</td>
+                    <td><a href="/courses/remove/{{course.id}}">remove</a></td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+
+</body>
+</html>

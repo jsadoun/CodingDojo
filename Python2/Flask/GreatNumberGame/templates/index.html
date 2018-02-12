@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Great Number Game</title>
+</head>
+<body>
+    <h2>Welcome to the Great Number Game!</h2>
+    <p>I am thinking of anumber between 1 and 100</p>
+    <p>Take a Guess!</p>
+
+{% if 'userNum' in session  %}
+    {% if session['userNum'] == session['computerNumber'] %}
+        <p>"match"</p>
+    {% elif session['userNum'] > session['computerNumber'] %}
+        <p>"too high"</p>
+    {% elif session['userNum'] < session['computerNumber'] %}
+        <p>"too low"</p>    
+    {% endif %}
+{% endif %}
+
+
+    <form action="/guessnumber" method='post'>
+        <input type="number" name="guess"> <br>
+        <input type="submit" name="submit">
+    </form>
+
+    <form action="/2" method="post">
+        <input type="submit" value="reset">
+    </form>
+</body>
+</html>
