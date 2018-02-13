@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/stylesheet.css">
+    <title>mongoose demo</title>
+</head>
+
+<body>
+
+    <% for ( let x in user){ %>
+    <h1>Name:<%= user[x].first_name%> <%= user[x].last_name%></h1> 
+    <h1>Age:<%= user[x].age%></h1> 
+    <h1>Email: <%= user[x].email%></h1>
+    <% } %>
+
+    <form action="/users" method="POST">
+        <fieldset>
+            <legend>Survey Form</legend>
+            Users First Name: <input type="text" name="first_name"> <br>
+            Users Last Name: <input type="text" name="last_name"> <br>
+            Users Age: <input type="text" maxlength="3" name="age" id="age"> <br>
+            Users Email: <input type="email" name="email"> <br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+    
+</body>
+
+</html>
