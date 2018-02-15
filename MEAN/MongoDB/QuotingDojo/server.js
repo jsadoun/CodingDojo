@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true})); //integrates body-parser w App
 
 
 
-//MODULES
+//MODELS
 mongoose.connect('mongodb://localhost/quoting_dojo'); //Mongoose connects server.js to MongoDB (if not database is present, it will create one)
 var Quote = new mongoose.Schema({ //sets attributes to a module 
     name:  { type: String, required: true, minlength: 3},
