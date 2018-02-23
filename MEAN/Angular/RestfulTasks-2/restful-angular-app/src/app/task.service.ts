@@ -10,7 +10,9 @@ export class TaskService {
 getTasks(){
   return this._http.get('tasks');
 }
-
+addTask(data){
+  return this._http.post('tasks', data);
+}
 }
 
 

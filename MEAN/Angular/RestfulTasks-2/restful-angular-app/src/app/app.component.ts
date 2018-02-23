@@ -10,6 +10,8 @@ import { TaskService } from './task.service';
 export class AppComponent implements OnInit {  
   title = 'Restful Tasks API';
   num: number;
+  allTasks: string[];
+  addTasks: string;
   randNum: number;
   str: string;
   first_name: string;
@@ -33,4 +35,20 @@ export class AppComponent implements OnInit {
       this.tasks = data['tasks'];
     });
   }
+  onButtonClickEvent(event: string){
+    this.allTasks = ["Learn Angular - Understand services", "Manipulate the DOM - Use the 'for of' loop", "Bind Events - Parentheses indicate events"];
+    console.log("printing tasks");
+  }
+  onButtonClickEvent2(){
+    let observable = this._taskService.addTask(this.addTasks);
+    observable.subscribe(data => {
+      console.log("adding a task", data)
+      this.addTasks = data['addTasks'];
+      this.getTasksFromService();
+    })
+
+    console.log("adding task");
+  }
 }
+
+
