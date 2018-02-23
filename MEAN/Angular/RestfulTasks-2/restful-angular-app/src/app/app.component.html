@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+</div>
+
+<h2>All the tasks:</h2>
+<ul>
+  <li>
+    <h5>Learn Angular - Understand services</h5>
+  </li>
+  <li>
+    <h5>Manipulate the DOM - Use the 'for of' loop</h5>
+  </li>
+  <li>
+    <h5>Bind Events - Parentheses indicate events</h5>
+  </li>
+</ul>
+
+<h2>The Third Task:</h2>
+<ul>
+  <li>
+    <h5>Bind events - Parentheses indicate events</h5>
+  </li>
+</ul>
+
+<h3>Value of num is: {{num}}</h3>
+<h3>Value of randNum is: {{randNum}}</h3>
+<h3>{{str}}</h3>
+<input type="text" [value]="first_name" />
+
+<p *ngIf="loggedIn">You are logged in!</p>
+<p *ngFor="let snack of snacks">{{snack}}</p>
+<p *ngIf="snacks.length < 3">You need more snacks.</p>
+
+
+
