@@ -1,0 +1,13 @@
+.flex{
+    display: flex;
+    border: 1px solid black;
+    margin: 2.5%;
+}
+
+#delete{
+    background-color: firebrick; 
+}
+
+#contact{
+    background-color: greenyellow; 
+}
