@@ -68,7 +68,7 @@ fs.readdirSync(modelPath).forEach(function(file) {
 //*** Routes.js
 
 let path       = require("path");
-let mongoose     = require("mongoose");
+//let mongoose     = require("mongoose");
 //Sample UserController
 let UserController  = require("../controllers/UserController.js");
 //Put the rest of your controllers here
@@ -124,7 +124,7 @@ let User = mongoose.model("User",new mongoose.Schema({
 
 Install Angular by going into client and typing ng new (Angular app name) --routing
 At this point you should test your node and Angular servers to make sure they're set up correctly.
-Run mongod.exe then set up your database and collections in Mongo based on the models you've made
+Run 'sudo mongod' then set up your database and collections in Mongo based on the models you've made
 Open up a cmd line, navigate to your root folder, and type nodemon server.js
 Open up another cmd line, navigate to your Angular app folder inside root/client/Angular App/ and type in ng build --watch
 Now navigate to http://localhost:8000 and make sure you get the default Angular app.
