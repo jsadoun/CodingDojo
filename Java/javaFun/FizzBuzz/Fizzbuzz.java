@@ -1,4 +1,3 @@
-
 public class Fizzbuzz{
     public String fizzBuzz(Integer num) {
         if( num%3 == 0){
