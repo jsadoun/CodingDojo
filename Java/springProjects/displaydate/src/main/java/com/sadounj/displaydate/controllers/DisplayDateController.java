@@ -32,4 +32,5 @@ public class DisplayDateController {
 			model.addAttribute("time", timeFormat.format(time));
 			return "time.jsp";
 	}
+	
 }
