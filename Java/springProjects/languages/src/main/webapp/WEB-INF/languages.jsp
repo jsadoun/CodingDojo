@@ -25,7 +25,14 @@
 					<td><a href="/languages/show/${language.id}"> <c:out value="${language.name}"/> </a></td>
 					<td><c:out value="${language.creator}"/></td>
 					<td><c:out value="${language.version}"/></td>
-					<td> <a href="/languages/edit/${language.id}">Edit</a> <a href="/languages/delete/${language.id}">Delete</a></td>
+					<td> 
+						<form action="/languages/edit/${language.id}" method="POST">
+							<input type="submit" value="Edit">
+						</form>
+						<form action="/languages/delete/${language.id}" method="POST">
+							<input type="submit" value="Delete">
+						</form>
+					</td>
 				</tr>
 			</c:forEach>				
 		</table>
