@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Taco SignUp</title>
+</head>
+<body>
+
+<h1>Dr.Pryor's Taco Bar</h1>
+   <div>
+            <fieldset>
+                <legend>Please select your taco(s):</legend>
+                <p>Choose any 2 types of tacos!</p>
+
+                <form action="/process_tacos/carne" method="POST">
+                CARNE ASADA: Grilled Beef
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+
+                <form action="/process_tacos/carnita" method="POST">
+                CARNITAS: Shredded Pork Confit
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+
+                <form action="/process_tacos/chorizo" method="POST">
+                CHORIZO: Mexican Sausage
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+
+                <form action="/process_tacos/birria" method="POST">
+                BIRRIA: Spicy Goat
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+
+                <form action="/process_tacos/lengua" method="POST">
+                LENGUA: Beef Tongue
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+
+                <form action="/process_tacos/pastor" method="POST">
+                AL PASTOR: Pork and Pineapple
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+
+                <form action="/process_tacos/tripa" method="POST">
+                TRIPA: Beef Small Intestine
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form> 
+
+                <form action="/process_tacos/tinga" method="POST">
+                TINGA: Stewed Chicken
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+
+                <form action="/process_tacos/barb" method="POST">
+                BARBACOA: Shredded Beef
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+                
+                <form action="/process_tacos/chich" method="POST">
+                CHICHARRON: Braised Crispy Pork
+                {% csrf_token %}
+                <input type="submit" value="add">
+                </form>
+                
+            </fieldset>
+   </div> 
+
+   <div>
+       <fieldset>
+           <legend>Taco Tally</legend>
+           CARNE ASADA - {{request.session.tacotype.carne}}       <br>
+           CARNITAS -    {{request.session.tacotype.carnita}}       <br>
+           CHORIZO -     {{request.session.tacotype.chorizo}}       <br>
+           BIRRIA -      {{request.session.tacotype.birria}}       <br>
+           LENGUA -      {{request.session.tacotype.lengua}}       <br>
+           AL PASTOR -   {{request.session.tacotype.pastor}}       <br>
+           TRIPA -       {{request.session.tacotype.tripa}}       <br>
+           TINGA -       {{request.session.tacotype.tinga}}       <br>
+           BARBACOA -    {{request.session.tacotype.barb}}       <br>
+           CHICHARRON -  {{request.session.tacotype.chich}}       <br>
+       </fieldset>
+   </div>
+
+</body>
+</html>

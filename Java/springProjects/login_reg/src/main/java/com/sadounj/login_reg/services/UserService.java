@@ -1,7 +1,11 @@
 package com.sadounj.login_reg.services;
 
+import java.util.ArrayList;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.sadounj.login_reg.models.Role;
 import com.sadounj.login_reg.models.User;
 import com.sadounj.login_reg.repositories.RoleRepository;
 import com.sadounj.login_reg.repositories.UserRepository;
@@ -15,6 +19,22 @@ public class UserService {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.bcrypt = bcrypt;
+        
+        init();
+        
+    }
+    
+    public void init() {
+    		if(roleRepository.findAll().size() < 1 ) {
+    			Role user = new Role();
+    			user.setName("ROLE_USER");
+    			
+    			Role admin = new Role();
+    			admin.setName("ROLE_ADMIN");
+    			
+    			roleRepository.save(user);
+    			roleRepository.save(admin);
+    		}
     }
     
     
@@ -39,5 +59,9 @@ public class UserService {
     
     public User findByEmail(String email){
     		return userRepository.findByEmail(email);
+    }
+    
+    public ArrayList<User> all(){
+    		return (ArrayList<User>)userRepository.findAll();
     }
 }
